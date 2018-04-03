@@ -98,7 +98,7 @@ def kyujitai_table(table: Table) -> Dict[str, Optional[str]]:
     return {
         variant: (None if variant == char else char)
         for char, variants in table
-        for variant in (variants or char)
+        for variant in (variants or [char])
     }
 
 
@@ -123,9 +123,9 @@ def main() -> None:
     _, spath, kpath = sys.argv
     st, kt = make_tables()
     with open(spath, 'w') as f:
-        json.dump(st, f, indent=2, ensure_ascii=False)
+        json.dump(st, f, indent='\t', ensure_ascii=False)
     with open(kpath, 'w') as f:
-        json.dump(kt, f, indent=2, ensure_ascii=False)
+        json.dump(kt, f, indent='\t', ensure_ascii=False)
 
 
 if __name__ == '__main__':

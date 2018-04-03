@@ -1,0 +1,14 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "title": "The mapping table from kyūjitai (舊字體) to shinjitai (新字体)",
+  "type": "object",
+  "patternProperties": {
+    "^(?:[\u4e00-\u9fff\uf900-\ufaff]|𠮟)$": {
+      "anyOf": [
+        {"type": "null"},
+        {"type": "string", "pattern": "^(?:[\u4e00-\u9fff]|𠮟)$"}
+      ]
+    }
+  },
+  "additionalProperties": false
+}

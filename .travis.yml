@@ -1,0 +1,6 @@
+language: node_js
+install:
+- npm install -g ajv-cli
+script:
+- ajv validate -s kyujitai-schema.json  -d kyujitai.json
+- ajv validate -s shinjitai-schema.json -d shinjitai.json
